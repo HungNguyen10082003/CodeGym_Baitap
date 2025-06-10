@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form đăng kí người dùng</title>
+  </head>
+  <label>
+    <h2>Đăng kí</h2>
+    <form action="/submit" method="post"></form>
+    <label for="name">Họ và Tên:</label><br />
+    <input type="text" id="name" name="name" /><br /><br />
+    <label>Gender</label>
+    <input type="radio" name="gender" value="male" /> Male
+    <input type="radio" name="gender" value="female" /> Female<br />
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" required /><br /><br />
+    <label for="password">Mật khẩu:</label><br />
+    <input type="password" id="password" name="password" required /><br>
+    <label for="password">Xác Nhận Mật Khẩu:</label><br />
+    <input type="submit" id="confirmPassword" /></label>
+  </body>
+</html>
