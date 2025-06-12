@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính chu vi và diện tích hình chữ nhật</title>
+  </head>
+  <body>
+    <h2>Tính chu vi và diện tích hình chữ nhật</h2>
+    <script>
+      // Nhập chiều dài và chiều rộng
+      let chieuDai = +prompt("Nhập chiều dài hình chữ nhật:");
+      let chieuRong = +prompt("Nhập chiều rộng hình chữ nhật:");
+
+      // Tính chu vi
+      let chuVi = (chieuDai + chieuRong) * 2;
+      
+      // Tính diện tích
+      let dienTich = chieuDai * chieuRong;
+
+      // Hiển thị kết quả
+      document.write("Chiều dài: " + chieuDai + "<br>");
+      document.write("Chiều rộng: " + chieuRong + "<br>");
+      document.write("Chu vi hình chữ nhật là: " + chuVi + "<br>");
+      document.write("Diện tích hình chữ nhật là: " + dienTich);
+    </script>
+  </body>
+</html>
