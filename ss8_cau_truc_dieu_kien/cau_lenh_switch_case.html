@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kiểm tra số ngày trong tháng</title>
+  </head>
+  <body>
+    <h1><strong>Kiểm tra số ngày trong tháng</strong></h1>
+
+    <input type="text" id="month" />
+    <button onclick="kiemTra()">Bấm Zô</button>
+    <p id="result">Kết quả</p>
+
+    <script>
+      function kiemTra() {
+        let month = parseInt(document.getElementById("month").value);
+        let result = "";
+
+        if (isNaN(month) || month < 1 || month > 12) {
+          result = "Vui lòng nhập tháng từ 1 đến 12.";
+        } else {
+          switch (month) {
+            case 2:
+              result = "Tháng 2 có 28 hoặc 29 ngày.";
+              break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+              result = "Tháng " + month + " có 30 ngày.";
+              break;
+            default:
+              result = "Tháng " + month + " có 31 ngày.";
+          }
+        }
+
+        document.getElementById("result").innerText = result;
+      }
+    </script>
+  </body>
+</html>

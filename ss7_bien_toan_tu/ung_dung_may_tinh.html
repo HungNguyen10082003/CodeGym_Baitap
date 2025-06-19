@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ứng dụng máy tính</title>
+  </head>
+  <body><body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        
+        <div class="input-row">
+            <input type="number" id="number1" value="12" placeholder="Nhập số thứ nhất">
+            <input type="number" id="number2" value="12" placeholder="Nhập số thứ hai">
+        </div>
+        
+        <div class="button-row">
+            <button onclick="calculate('+')" id="addBtn">(+)</button>
+            <button onclick="calculate('-')" id="subBtn">(-)</button>
+            <button onclick="calculate('*')" id="mulBtn">(X)</button>
+            <button onclick="calculate('/')" id="divBtn">(/)</button>
+        </div>
+        
+        <div class="result" id="result">
+        </div>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            // Lấy giá trị từ 2 ô input
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const resultDiv = document.getElementById('result');
+            
+            // Kiểm tra input hợp lệ
+            if (isNaN(num1) || isNaN(num2)) {
+                resultDiv.textContent = 'Result: Please enter valid numbers';
+                return;
+            }
+            
+            let result;
+            let operationName;
+            
+            // Thực hiện phép toán
+            switch(operation) {
+                case '+':
+                    result = num1 + num2;
+                    operationName = 'Addition';
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    operationName = 'Subtraction';
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    operationName = 'Multiplication';
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        resultDiv.textContent = 'Result Division: Cannot divide by zero';
+                        return;
+                    }
+                    result = num1 / num2;
+                    operationName = 'Division';
+                    break;
+                default:
+                    return;
+            }
+            
+            // Hiển thị kết quả
+            resultDiv.textContent = `Result ${operationName}: ${result}`;
+        }
+    
+    </script>
+</body>
+</html>
