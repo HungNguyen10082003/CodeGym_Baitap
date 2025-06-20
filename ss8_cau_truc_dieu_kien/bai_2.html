@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhập tuổi</title>
+  </head>
+  <body>
+    <input type="number" id="tuoi" placeholder="Nhập tuổi" min="1" max="100" />
+    <button onclick="kiemTraTuoi()">Kiểm tra điều kiện</button>
+    <button onclick="xoaDuLieu()">Xóa</button>
+
+    <h3>Kết quả:</h3>
+    <div id="ketQua"></div>
+  </body>
+  <script>
+    function kiemTraTuoi() {
+      // Lấy giá trị tuổi từ input
+      let tuoi = parseInt(document.getElementById("tuoi").value);
+      let ketQua = "";
+
+      // Kiểm tra dữ liệu đầu vào
+      if (isNaN(tuoi) || tuoi <= 0) {
+        ketQua = "❌ Vui lòng nhập tuổi hợp lệ!";
+      } else if (tuoi > 25) {
+        ketQua = "⚠️ Tuổi " + tuoi + " - Quá tuổi học lớp 10 thông thường";
+      } else {
+        if (tuoi >= 15) {
+          ketQua = "✅ Tuổi " + tuoi + " - Đủ điều kiện vào học lớp 10";
+        } else {
+          ketQua = "❌ Tuổi " + tuoi + " - Không đủ điều kiện vào học lớp 10";
+          ketQua += "<br>📝 Cần tối thiểu 15 tuổi để vào lớp 10";
+        }
+      }
+
+      document.getElementById("ketQua").innerHTML = ketQua;
+    }
+
+    function xoaDuLieu() {
+      document.getElementById("tuoi").value = "";
+      document.getElementById("ketQua").innerHTML = "";
+    }
+  </script>
+</html>

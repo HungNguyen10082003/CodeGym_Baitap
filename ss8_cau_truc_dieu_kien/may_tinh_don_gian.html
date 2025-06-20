@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Máy Tính Đơn Giản</title>
+  </head>
+  <body>
+    <h2>Máy Tính Đơn Giản</h2>
+
+    <input type="text" id="display" />
+    <br /><br />
+
+    <button onclick="nhap('1')">1</button>
+    <button onclick="nhap('2')">2</button>
+    <button onclick="nhap('3')">3</button>
+    <button onclick="nhap('+')">+</button>
+    <br />
+
+    <button onclick="nhap('4')">4</button>
+    <button onclick="nhap('5')">5</button>
+    <button onclick="nhap('6')">6</button>
+    <button onclick="nhap('-')">-</button>
+    <br />
+
+    <button onclick="nhap('7')">7</button>
+    <button onclick="nhap('8')">8</button>
+    <button onclick="nhap('9')">9</button>
+    <button onclick="nhap('*')">×</button>
+    <br />
+
+    <button onclick="xoaManHinh()">C</button>
+    <button onclick="nhap('0')">0</button>
+    <button onclick="tinhKetQua()">=</button>
+    <button onclick="nhap('/')">/</button>
+
+    <script>
+      let display = document.getElementById("display");
+      let firstNumber = "";
+      let operator = "";
+      let waitingForNumber = false;
+
+      function nhap(value) {
+        if (value === "+" || value === "-" || value === "*" || value === "/") {
+          if (display.value !== "" && !waitingForNumber) {
+            // nếu màn hình rỗng và không có số chờ thì thực hiện tiếp
+            firstNumber = display.value;
+            operator = value;
+            waitingForNumber = true;
+          }
+        } else {
+          if (waitingForNumber) {
+            display.value = value;
+            waitingForNumber = false;
+          } else {
+            display.value += value;
+          }
+        }
+      }
+
+      function tinhKetQua() {
+        if (firstNumber !== "" && operator !== "" && display.value !== "") {
+          let secondNumber = display.value;
+          let result;
+
+          switch (operator) {
+            case "+":
+              result = parseFloat(firstNumber) + parseFloat(secondNumber);
+              break;
+            case "-":
+              result = parseFloat(firstNumber) - parseFloat(secondNumber);
+              break;
+            case "*":
+              result = parseFloat(firstNumber) * parseFloat(secondNumber);
+              break;
+            case "/":
+              result = parseFloat(firstNumber) / parseFloat(secondNumber);
+              break;
+          }
+
+          display.value = result;
+          firstNumber = "";
+          operator = "";
+        }
+      }
+
+      function xoaManHinh() {
+        display.value = "";
+        firstNumber = "";
+        operator = "";
+        waitingForNumber = false;
+      }
+    </script>
+  </body>
+</html>

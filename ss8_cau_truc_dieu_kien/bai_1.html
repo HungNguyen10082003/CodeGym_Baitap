@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm tra hai số a và b</title>
+  </head>
+  <body>
+    <label>Nhập số a:</label>
+    <input type="number" id="soA" placeholder="Nhập số a" />
+    <br /><br />
+
+    <label>Nhập số b:</label>
+    <input type="number" id="soB" placeholder="Nhập số b" />
+    <br /><br />
+
+    <button onclick="kiemTra()">Kiểm tra</button>
+    <button onclick="xoaDuLieu()">Xóa</button>
+
+    <h3>Kết quả:</h3>
+    <div id="ketQua"></div>
+
+    <script>
+      // Hàm kiểm tra
+      function kiemTra() {
+        // Lấy giá trị từ input
+        let a = parseFloat(document.getElementById("soA").value);
+        let b = parseFloat(document.getElementById("soB").value);
+        let ketQua = "";
+
+        // Kiểm tra dữ liệu đầu vào
+        if (isNaN(a) || isNaN(b)) {
+          ketQua = "Vui lòng nhập đầy đủ hai số!";
+        }
+        if (b === 0) {
+          ketQua = "Số b không thể bằng 0!";
+        } else {
+          // Kiểm tra a có chia hết cho b không
+          if (a % b === 0) {
+            ketQua = "✅" + a + " chia hết cho " + b;
+            ketQua += "<br>Kết quả phép chia: " + a + " ÷ " + b + " = " + a / b;
+          } else {
+            ketQua = "❌" + a + " không chia hết cho " + b;
+            ketQua += "<br>Phần dư: " + (a % b);
+          }
+        }
+        document.getElementById("ketQua").innerHTML = ketQua;
+      }
+      function xoaDuLieu() {
+        document.getElementById("soA").value = "";
+        document.getElementById("soB").value = "";
+        document.getElementById("ketQua").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
