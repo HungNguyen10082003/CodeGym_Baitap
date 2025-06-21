@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viết chương trình tính thuế thu nhập cá nhân.</title>
+</head>
+<body>
+    <script>
+        let thu_nhap = +prompt("Nhập thu nhập: ");
+        let thu_nhap_sau_thue = 0;
+        if (thu_nhap <= 10000000) {
+            thu_nhap_sau_thue = thu_nhap;
+        } else if (thu_nhap <= 15000000) {
+            thu_nhap_sau_thue = thu_nhap * 0.9;
+        } else {
+            thu_nhap_sau_thue = thu_nhap * 0.8;
+        }
+        alert("Thu nhập sau thuế: " + thu_nhap_sau_thue.toLocaleString() + " VNĐ");
+    </script>
+</body>
+</html>

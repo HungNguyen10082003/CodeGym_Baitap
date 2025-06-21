@@ -10,28 +10,28 @@
       let soDien = +prompt("Nhập số điện: ");
       let giaDien = 0;
       if (soDien <= 50) {
-        giaDien = soDien * 1984;
+        giaDien = soDien * 1678;
       } else if (soDien <= 100) {
-        giaDien = 50 * 1678 + (soDien - 50) * 2050;
+        giaDien = 50 * 1678 + (soDien - 50) * 1734;
       } else if (soDien <= 200) {
-        giaDien = 50 * 1678 + 50 * 2050 + (soDien - 100) * 2380;
+        giaDien = 50 * 1678 + 50 * 1734 + (soDien - 100) * 2014;
       } else if (soDien <= 300) {
-        giaDien = 50 * 1678 + 50 * 2050 + 100 * 2380 + (soDien - 200) * 2998;
+        giaDien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (soDien - 200) * 2536;
       } else if (soDien <= 400) {
         giaDien =
           50 * 1678 +
-          50 * 2050 +
-          100 * 2380 +
-          100 * 2998 +
-          (soDien - 300) * 3350;
+          50 * 1734 +
+          100 * 2014 +
+          100 * 2536 +
+          (soDien - 300) * 2834;
       } else {
         giaDien =
           50 * 1678 +
-          50 * 2050 +
-          100 * 2380 +
-          100 * 2998 +
-          100 * 3350 +
-          (soDien - 400) * 3460;
+          50 * 1734 +
+          100 * 2014 +
+          100 * 2536 +
+          100 * 2834 +
+          (soDien - 400) * 2927;
       }
       alert("Số tiền phải trả: " + giaDien.toLocaleString() + " VNĐ");
     </script>
