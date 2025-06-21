@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính cước điện thoại cho một hộ gia đình dựa trên các thông số được cung cấp</title>
+</head>
+<body>
+    <script>
+        let so_phut = +prompt("Nhập số phút gọi: ");
+        let tong_tien = 0;
+        if (so_phut <= 50) {
+            tong_tien = so_phut * 1000;
+            alert("Tổng tiền cước điện thoại: " + tong_tien);
+        } else if (so_phut <= 100) 
+            tong_tien = 50 * 1000 + (so_phut - 50) * 1200;
+            alert("Tổng tiền cước điện thoại: " + tong_tien);
+        
+    </script>
+</body>
+</html>

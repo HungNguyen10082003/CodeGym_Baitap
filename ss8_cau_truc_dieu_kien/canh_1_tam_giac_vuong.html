@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm tra các cạnh của tam giác</title>
+  </head>
+  <body>
+    <script>
+      let a = +prompt("Nhập cạnh a: ");
+      let b = +prompt("Nhập cạnh b: ");
+      let c = +prompt("Nhập cạnh c: ");
+      if ((isNaN(a) && a > 0) || (isNaN(b) && b > 0) || (isNaN(c) && c > 0)) {
+        alert("Vui lòng nhập cạnh a, b, c hợp lệ");
+      } else if (
+        a * a + b * b === c * c ||
+        a * a + c * c === b * b ||
+        b * b + c * c === a * a
+      ) {
+        alert("Tam giác vuông");
+      } else if (a + b > c && a + c > b && b + c > a) {
+        alert("Tam giác hợp lệ");
+      } else {
+        alert("Tam giác không hợp lệ");
+      }
+    </script>
+  </body>
+</html>

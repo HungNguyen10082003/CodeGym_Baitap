@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính hoa hồng nhận được dựa trên mức doanh số bán hàng</title>
+</head>
+<body>
+    <script>
+        let doanh_so = +prompt("Nhập doanh số bán hàng: "); 
+        if (doanh_so >= 100000000) {
+            hoa_hong = doanh_so * 0.05;
+            alert("Hoa hồng nhận được: " + hoa_hong);
+        } else if (doanh_so >= 50000000) {
+            hoa_hong = doanh_so * 0.03;
+            alert("Hoa hồng nhận được: " + hoa_hong);
+        } else {
+            alert("Hoa hồng nhận được: 0");
+        }
+    </script>
+    
+</body>
+</html>
