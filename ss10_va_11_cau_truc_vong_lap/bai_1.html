@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đếm từ 1 đến 100</title>
+  </head>
+  <body>
+    <h1>Đếm từ 1 đến 100 bằng vòng lặp</h1>
+
+    <button onclick="batDauDem()">Bắt đầu đếm</button>
+
+    <div id="output"></div>
+
+    <script>
+      function batDauDem() {
+        const output = document.getElementById("output");
+        output.innerHTML = "";
+
+        let i = 1;
+
+        do {
+          output.innerHTML += i + " ";
+
+          if (i === 100) {
+            alert("Đã hoàn thành!");
+          }
+
+          i++;
+        } while (i <= 99);
+
+        output.innerHTML += "<br><strong>Hoàn thành!</strong>";
+      }
+    </script>
+  </body>
+</html>

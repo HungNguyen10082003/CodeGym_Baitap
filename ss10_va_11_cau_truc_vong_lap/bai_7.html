@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tổng 30 số chia hết cho 7</title>
+  </head>
+  <body>
+    <h1>Tính tổng 30 số chia hết cho 7 đầu tiên</h1>
+
+    <div id="ketQua"></div>
+
+    <script>
+      let tong = 0;
+      let dem = 0;
+      let i = 1;
+      let daySo = [];
+
+      while (dem < 30) {
+        if (i % 7 === 0) {
+          tong += i;
+          daySo.push(i);
+          dem++;
+        }
+        i++;
+      }
+
+      document.getElementById("ketQua").innerHTML =
+        "<h2>30 số chia hết cho 7 đầu tiên:</h2>" +
+        "<p>" +
+        daySo.join(", ") +
+        "</p>" +
+        "<h2>Tổng: " +
+        tong +
+        "</h2>";
+    </script>
+  </body>
+</html>

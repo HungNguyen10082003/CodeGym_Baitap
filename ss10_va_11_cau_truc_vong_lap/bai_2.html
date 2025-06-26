@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm tra nhiệt độ</title>
+  </head>
+  <body>
+    <h1>Kiểm tra nhiệt độ</h1>
+
+    <button onclick="kiemTra()">Bắt đầu</button>
+
+    <script>
+      function kiemTra() {
+        let nhietDo;
+
+        do {
+          nhietDo = prompt("Nhập nhiệt độ (°C):");
+          nhietDo = parseFloat(nhietDo);
+
+          if (nhietDo > 100) {
+            alert("Vui lòng giảm nhiệt độ!");
+          } else if (nhietDo < 20) {
+            alert("Vui lòng tăng nhiệt độ!");
+          }
+        } while (nhietDo > 100 || nhietDo < 20);
+
+        alert("Nhiệt độ bình thường!");
+      }
+    </script>
+  </body>
+</html>

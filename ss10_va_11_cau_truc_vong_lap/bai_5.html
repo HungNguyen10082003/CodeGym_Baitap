@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tổng 20 số Fibonacci</title>
+  </head>
+  <body>
+    <h1>Tính tổng 20 số Fibonacci đầu tiên</h1>
+
+    <div id="ketQua"></div>
+
+    <script>
+      let a = 0;
+      let b = 1;
+      let tong = a + b;
+
+      for (let i = 2; i < 20; i++) {
+        let c = a + b;
+        tong += c;
+        a = b;
+        b = c;
+      }
+
+      document.getElementById("ketQua").innerHTML =
+        "<h2>Tổng 20 số Fibonacci đầu tiên: " + tong + "</h2>";
+    </script>
+  </body>
+</html>
