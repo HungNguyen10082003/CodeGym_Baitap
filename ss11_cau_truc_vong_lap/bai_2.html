@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính giai thừa</title>
+  </head>
+  <body>
+    <h2>Tính giai thừa</h2>
+    <input type="number" id="so" value="5" />
+    <button onclick="tinhGiaiThua()">Tính</button>
+    <div id="ketQua"></div>
+
+    <script>
+      function giaiThua(n) {
+        let tich = 1;
+        for (let i = 1; i <= n; i++) {
+          tich *= i;
+        }
+        return tich;
+      }
+      function tinhGiaiThua() {
+        const so = document.getElementById("so").value;
+        const ketQua = giaiThua(so);
+
+        // Tạo chuỗi phép tính
+        let phepTinh = "";
+        for (let i = 1; i <= so; i++) {
+          phepTinh += i;
+          if (i < so) phepTinh += "x";
+        }
+
+        document.getElementById(
+          "ketQua"
+        ).innerHTML = `<p>${so}! = ${phepTinh} = ${ketQua}</p>`;
+      }
+    </script>
+  </body>
+</html>

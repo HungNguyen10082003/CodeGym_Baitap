@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game đoán số</title>
+  </head>
+  <body>
+    <button onclick="playGame()">Game đoán số</button>
+    <script>
+        function playGame(){
+          let min = +prompt("Nhập giá trị nhỏ nhất")
+          let max = +prompt("Nhập giá trị lớn nhất")
+          let result =  min + Math.ceil(Math.random()*(max-min));
+          let yourNumber;
+          for(let i = 1; i<=3, i++){
+              yourNumber = +prompt("Nhập số bạn đoán")
+              if(yourNumber===result){
+                  alert("Chúc mừng bạn đã đoán đúng")
+                  break;
+              }else if(yourNumber<result){
+                  alert("Số bạn đoán nhỏ hơn số bí mật")
+              }else
+                  alert("Số bạn đoán lớn hơn số bí mật")
+              }
+          if(i===3){
+              alert("bạn đã hết lượt")
+          }
+      }
+    </script>
+  </body>
+</html>
