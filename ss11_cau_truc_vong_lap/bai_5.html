@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tính lãi ngân hàng</title>
+  </head>
+  <body>
+    <h2>Tính lãi ngân hàng</h2>
+
+    <div>Tiền gốc: <input type="number" id="tienGoc" value="10000000" /></div>
+    <div>
+      Lãi suất (%/tháng):
+      <input type="number" id="laiSuat" value="0.5" step="0.1" />
+    </div>
+    <div>Số tháng: <input type="number" id="soThang" value="3" /></div>
+
+    <button onclick="tinhLai()">Tính lãi</button>
+    <button onclick="xoaKetQua()">Xóa</button>
+
+    <div id="ketqua"></div>
+
+    <script>
+      function tinhLai() {
+        let tienGoc = parseInt(document.getElementById("tienGoc").value);
+        let laiSuat = parseFloat(document.getElementById("laiSuat").value);
+        let soThang = parseInt(document.getElementById("soThang").value);
+
+        let soDu = tienGoc;
+        let ketqua = `Tháng 0: ${soDu.toLocaleString()} VND\n`;
+
+        for (let thang = 1; thang <= soThang; thang++) {
+          let lai = (soDu * laiSuat) / 100;
+          soDu = soDu + lai;
+          ketqua += `Tháng ${thang}: ${soDu.toLocaleString()} VND (lãi: ${lai.toLocaleString()} VND)\n`;
+        }
+
+        let tongLai = soDu - tienGoc;
+        ketqua += `\nTổng lãi: ${tongLai.toLocaleString()} VND`;
+
+        document.getElementById("ketqua").innerText = ketqua;
+      }
+
+      function xoaKetQua() {
+        document.getElementById("ketqua").innerText = "";
+      }
+    </script>
+  </body>
+</html>
