@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tìm phần tử v trong mảng</title>
+  </head>
+  <body>
+    <script>
+      let n = +prompt("nhập độ dài của mảng");
+      let array = new Array(n);
+      for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`nhập phần tử thứ ${i}:`);
+      }
+      let v = parseInt(prompt("Nhập giá trị v cần tìm:"));
+      let found = false;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === v) {
+          found = true;
+          break;
+        }
+      }
+      if (found) {
+        alert("v is in the array");
+        console.log("v is in the array");
+      } else {
+        alert("v is not in the array");
+        console.log("v is not in the array");
+      }
+    </script>
+  </body>
+</html>

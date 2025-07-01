@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xóa giá trị trong mảng</title>
+  </head>
+  <body>
+    <script>
+      let n = +prompt("nhập độ dài của mảng");
+      let array = new Array(n);
+      for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`nhập phần tử thứ ${i}:`);
+      }
+      let v = parseInt(prompt("Nhập giá trị v cần tìm và xóa:"));
+      let found = false;
+      let foundIndex = -1;
+
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === v) {
+          found = true;
+          foundIndex = i;
+          break;
+        }
+      }
+      if (found) {
+        alert(`v (${v}) có trong mảng tại vị trí ${foundIndex}`);
+        for (let i = foundIndex; i < array.length - 1; i++) {
+          array[i] = array[i + 1];
+        }
+        array.length = array.length - 1;
+        alert("Đã xóa phần tử", v, "khỏi mảng");
+      } else {
+        alert(` v (${v}) không có trong mảng`);
+        alert("Không có gì để xóa");
+      }
+    </script>
+  </body>
+</html>

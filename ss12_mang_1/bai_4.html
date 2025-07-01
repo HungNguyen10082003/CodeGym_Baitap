@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Viết chương trình khởi tạo hoặc nhập vào một mảng số nguyên và đảo ngược
+      các phần tử trong mảng.
+    </title>
+  </head>
+  <body>
+    <script>
+      let n = +prompt("nhập độ dài của mảng");
+      let array = new Array(n);
+      for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`nhập phần tử thứ ${i}:`);
+      }
+      for (let i = 0; i < array.length - 1; i--) {
+        document.write("." + array[i] + "<br>");
+      }
+    </script>
+  </body>
+</html>

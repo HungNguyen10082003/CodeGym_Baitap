@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đếm Số lớn 10</title>
+  </head>
+  <body>
+    <script>
+      let n = +prompt("nhập độ dài của mảng");
+      let array = new Array(n);
+      for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`nhập phần tử thứ ${i}:`);
+      }
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] >= 10) {
+          alert("Phần tử >=10: " + array[i]);
+        }
+      }
+    </script>
+  </body>
+</html>

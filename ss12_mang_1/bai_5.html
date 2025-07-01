@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhập mảng và in phần tử âm</title>
+  </head>
+  <body>
+    <script>
+      let n = +prompt("Nhập độ dài của mảng:");
+      let array = new Array(n);
+      for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`Nhập phần tử thứ ${i}:`);
+      }
+
+      for (let i = 0; i < array.length; i++) {
+        if (i < array.length - 1) {
+        }
+
+        let hasNegative = false;
+
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] < 0) {
+            document.write(`Phần tử âm tại vị trí ${i}: ${array[i]}<br>`);
+            hasNegative = true;
+          }
+        }
+        if (!hasNegative) {
+          document.write("Không có phần tử âm nào trong mảng.");
+        }
+      }
+    </script>
+  </body>
+</html>
