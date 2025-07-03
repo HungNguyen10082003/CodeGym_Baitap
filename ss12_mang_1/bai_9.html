@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nối mảng</title>
+  </head>
+  <body>
+    <script>
+      let mangA = prompt("Nhập 10 số nguyên cho mảng a");
+      let a = mangA.split(",").map(Number);
+      let mangB = prompt("Nhập 10 số nguyên cho mảng b");
+      let b = mangB.split(",").map(Number);
+      if (a.length !== 10 || b.length !== 10) {
+        alert("Mỗi mảng phải có đúng 10 phần tử.");
+      } else {
+        let c = b.concat(a);
+        alert("Mảng c gồm 20 phần tử là: " + c.join(", "));
+      }
+    </script>
+  </body>
+</html>
