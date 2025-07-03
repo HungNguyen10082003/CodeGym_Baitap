@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viết chương trình đếm số từ trong một mảng.</title>
+  </head>
+  <body>
+    <script>
+      function demPhanTuBangVongLap(array) {
+        let dem = 0;
+        for (let i = 0; i < array.length; i++) {
+          dem++;
+        }
+        return dem;
+      }
+      let soPhanTu = demPhanTuBangVongLap(array);
+      let n = +prompt("nhập độ dài của mảng");
+      let array = new Array(n);
+      for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`nhập phần tử thứ ${i}:`);
+      }
+      document.write("Mảng: [" + array.join(", ") + "]<br>");
+      document.write("Số phần tử: " + soPhanTu + "<br>");
+
+      document.write("<br>Chi tiết từng phần tử:<br>");
+      for (let i = 0; i < array.length; i++) {
+        document.write(`array[${i}] = ${array[i]}<br>`);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Viết chương trình khai báo một mảng ký tự và kích thước của mảng.
+    </title>
+  </head>
+  <body>
+    <script>
+      let n = +prompt("nhập độ dài của mảng");
+      let array = new Array(n);
+      for (let i = 0; i < array.length; i++) {
+        array[i] = +prompt(`nhập phần tử thứ ${i}:`);
+      }
+      document.write();
+      for (let i = 0; i < array.length; i++) {
+        document.write(`${array[i]} , `);
+      }
+    </script>
+  </body>
+</html>
