@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cộng 1 vào số</title>
+    <script>
+      function tangMotGiaTri(so) {
+        return Number(so) + 1;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Kết quả sau khi tăng: <span id="ketqua"></span></h2>
+
+    <script>
+      let giaTriBanDau = +prompt("Nhập giá trị cần hiển thị:");
+      let ketQua = tangMotGiaTri(giaTriBanDau);
+      document.getElementById("ketqua").textContent = ketQua;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính giai thừa</title>
+  </head>
+  <body>
+    <script>
+      let n = parseInt(prompt("Nhập số nguyên n: "));
+      function tinhGiaiThua(n) {
+        if (n === 0 || n === 1) return 1;
+        let gt = 1;
+        for (let i = 2; i <= n; i++) {
+          gt *= i;
+        }
+        return gt;
+      }
+      alert("Giai thừa của n là " + tinhGiaiThua(n));
+    </script>
+  </body>
+</html>

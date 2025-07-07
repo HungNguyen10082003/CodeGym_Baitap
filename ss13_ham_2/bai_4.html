@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm tra kí tự</title>
+  </head>
+  <body>
+    <script>
+      function kiemTraKyTu(kyTu) {
+        if (kyTu >= "0" && kyTu <= "9") {
+          return "Đây là ký tự số.";
+        } else if (
+          (kyTu >= "A" && kyTu <= "Z") ||
+          (kyTu >= "a" && kyTu <= "z")
+        ) {
+          return "Đây là ký tự chữ.";
+        } else {
+          return "Không phải là chữ hay số.";
+        }
+      }
+      let kyTuNhap = prompt("Nhập vào một ký tự bất kỳ:");
+      if (kyTuNhap.length !== 1) {
+        alert("Vui lòng chỉ nhập một ký tự!");
+      } else {
+        alert(kiemTraKyTu(kyTuNhap));
+      }
+    </script>
+  </body>
+</html>

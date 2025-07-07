@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm tra số dương</title>
+  </head>
+  <body>
+    <script>
+      function laSoNguyenDuong(n) {
+        return Number.isInteger(n) && n > 0;
+      }
+
+      let nhapSo = prompt("Nhập vào một số nguyên bất kỳ:");
+      let so = Number(nhapSo);
+
+      if (laSoNguyenDuong(so)) {
+        alert(so + " là số nguyên dương.");
+      } else {
+        alert(so + " không phải là số nguyên dương.");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhập hàm alert</title>
+  </head>
+  <body>
+    <script>
+      let result = +prompt("Nhập giá trị:");
+
+      alert("Giá trị result trước khi gọi hàm: " + result);
+
+      result = tangGiaTri(result);
+
+      alert("Giá trị result sau khi gọi hàm: " + result);
+
+      function tangGiaTri(x) {
+        return x + 1;
+      }
+    </script>
+  </body>
+</html>

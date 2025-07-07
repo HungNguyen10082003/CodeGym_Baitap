@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đổi chỗ 2 số nguyên</title>
+  </head>
+  <body>
+    <script>
+      function doiChoHaiSo(arr) {
+        let temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+      }
+      let so1 = prompt("Nhập số thứ nhất:");
+      let so2 = prompt("Nhập số thứ hai:");
+
+      alert("Trước khi đổi: so1 = " + so1 + ", so2 = " + so2);
+      let mang = [so1, so2];
+      doiChoHaiSo(mang);
+      alert("Sau khi đổi: so1 = " + mang[0] + ", so2 = " + mang[1]);
+    </script>
+  </body>
+</html>

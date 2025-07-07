@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function kiemTraKyTu(mang, kyTuCanTim) {
+        let dem = 0;
+        for (let i = 0; i < mang.length; i++) {
+          if (mang[i] === kyTuCanTim) {
+            dem++;
+          }
+        }
+        return dem > 0 ? dem : -1;
+      }
+
+      let nhapMang = prompt("Nhập mảng ký tự (cách nhau bằng dấu phẩy):");
+      let mangKyTu = nhapMang.split(",");
+
+      let kyTu = prompt("Nhập một ký tự cần kiểm tra:");
+
+      let ketQua = kiemTraKyTu(mangKyTu, kyTu);
+
+      if (ketQua === -1) {
+        alert("Ký tự '" + kyTu + "' không có trong mảng.");
+      } else {
+        alert("Ký tự '" + kyTu + "' xuất hiện " + ketQua + " lần trong mảng.");
+      }
+    </script>
+  </body>
+</html>

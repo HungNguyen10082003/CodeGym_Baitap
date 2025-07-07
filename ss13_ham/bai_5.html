@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>So sánh hai số</title>
+    <script>
+      function xuLyHaiSo(a, b) {
+        a = Number(a);
+        b = Number(b);
+
+        if (a > b) {
+          alert("Tham số thứ nhất lớn hơn tham số thứ hai.");
+        } else {
+          return a + b;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Kết quả: <span id="ketqua"></span></h2>
+
+    <script>
+      let so1 = +prompt("Nhập số thứ 1:");
+      let so2 = +prompt("Nhập số thứ 2:");
+      let ketQua = xuLyHaiSo(so1, so2);\
+      document.getElementById("ketqua").textContent = ketQua;
+    </script>
+  </body>
+</html>

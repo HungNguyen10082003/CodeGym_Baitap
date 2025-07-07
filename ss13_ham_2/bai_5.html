@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tìm số nguyên nhỏ nhất</title>
+  </head>
+  <body>
+    <script>
+      function timSoNhoNhat(mang) {
+        let min = mang[0];
+        for (let i = 1; i < mang.length; i++) {
+          if (mang[i] < min) {
+            min = mang[i];
+          }
+        }
+        return min;
+      }
+      let nhap = prompt("Nhập vào một dãy số nguyên, cách nhau bằng dấu phẩy:");
+      let daySo = nhap.split(",").map(Number);
+      let soNhoNhat = timSoNhoNhat(daySo);
+      alert("Số nhỏ nhất trong dãy là: " + soNhoNhat);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đảo ngược mảng</title>
+  </head>
+  <body>
+    <script>
+      // Hàm đảo ngược mảng
+      function daoNguocMang(mang) {
+        return mang.reverse();
+      }
+      let nhap = prompt(
+        "Nhập vào một dãy số nguyên, cách nhau bằng dấu phẩy):"
+      );
+
+      let mangSo = nhap.split(",").map(Number);
+      alert("Mảng ban đầu: " + mangSo.join(", "));
+      let mangDaoNguoc = daoNguocMang(mangSo);
+      alert("Mảng sau khi đảo ngược: " + mangDaoNguoc.join(", "));
+    </script>
+  </body>
+</html>
