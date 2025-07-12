@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+  </head>
+  <body>
+    <script>
+      class Rectangle {
+        constructor(width, height) {
+          this.width = width;
+          this.height = height;
+        }
+
+        getArea() {
+          return this.width * this.height;
+        }
+
+        getPerimeter() {
+          return 2 * (this.width + this.height);
+        }
+
+        display() {
+          console.log(`Chiều rộng: ${this.width}`);
+          console.log(`Chiều cao: ${this.height}`);
+          console.log(`Chu vi: ${this.getPerimeter()}`);
+          console.log(`Diện tích: ${this.getArea()}`);
+        }
+      }
+      const rect1 = new Rectangle(5, 10);
+
+      rect1.display();
+    </script>
+  </body>
+</html>

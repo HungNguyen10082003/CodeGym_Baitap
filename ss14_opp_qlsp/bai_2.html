@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xây dựng lớp mô tả Temperature</title>
+  </head>
+  <body>
+    <script>
+      class Temperature {
+        constructor(celsius) {
+          this.celsius = celsius;
+        }
+
+        toFahrenheit() {
+          return (this.celsius * 9) / 5 + 32;
+        }
+
+        toKelvin() {
+          return this.celsius + 273.15;
+        }
+
+        display() {
+          console.log(`Nhiệt độ (°C): ${this.celsius}°C`);
+          console.log(`Nhiệt độ (°F): ${this.toFahrenheit().toFixed(2)}°F`);
+          console.log(`Nhiệt độ (K): ${this.toKelvin().toFixed(2)}K`);
+        }
+      }
+      const temp = new Temperature(30);
+      temp.display();
+    </script>
+  </body>
+</html>
