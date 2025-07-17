@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kiểm tra và tìm số lớn nhất</title>
+    <script>
+      function findMaxNumber(n) {
+        if (isNaN(n)) {
+          return -1;
+        }
+        const str = n.toString();
+        let max = -Infinity;
+        for (let i = 0; i < 4; i++) {
+          let newStr = str.slice(0, i) + str.slice(i + 1);
+          let newNum = parseInt(newStr, 10);
+          if (newNum > max) {
+            max = newNum;
+          }
+        }
+
+        return max;
+      }
+
+      window.onload = function () {
+        const input = prompt("Nhập vào một số có 4 chữ số:");
+        if (input === null) return;
+
+        const result = findMaxNumber(input);
+        alert("Kết quả: " + result);
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

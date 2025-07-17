@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Viết hàm với tham số là mảng nguyên. Hàm thực hiện kiểm tra</title>
+  </head>
+  <body>
+    <script>
+      function kiemTraChanLe(arr) {
+        let soChan = 0;
+        let soLe = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 === 0) {
+            soChan++;
+          } else {
+            soLe++;
+          }
+        }
+
+        if (soChan === arr.length) return 1;
+        else if (soLe === arr.length) return 0;
+        else return -1;
+      }
+
+      let input = prompt("Nhập mảng số nguyên cách nhau bằng dấu phẩy");
+      let arr = input.split(",").map(Number);
+      let kq = kiemTraChanLe(arr);
+      alert("Kết quả" + kq);
+    </script>
+  </body>
+</html>
