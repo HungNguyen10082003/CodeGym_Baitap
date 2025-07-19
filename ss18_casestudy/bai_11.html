@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kiểm tra tam giác</title>
+  </head>
+  <body>
+    <script>
+      function checkTriangle(a, b, c) {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        c = parseFloat(c);
+
+        if (a <= 0 || b <= 0 || c <= 0) {
+          return "Không phải là cạnh của 1 tam giác";
+        }
+
+        if (a + b <= c || a + c <= b || b + c <= a) {
+          return "Không phải là cạnh của 1 tam giác";
+        }
+
+        let a2 = a * a,
+          b2 = b * b,
+          c2 = c * c;
+
+        if (a2 + b2 === c2 || a2 + c2 === b2 || b2 + c2 === a2) {
+          return "Là 3 cạnh của 1 tam giác vuông";
+        }
+
+        return "Chỉ là 3 cạnh của một tam giác";
+      }
+
+      let x = prompt("Nhập cạnh thứ nhất:");
+      let y = prompt("Nhập cạnh thứ hai:");
+      let z = prompt("Nhập cạnh thứ ba:");
+
+      let ketQua = checkTriangle(x, y, z);
+      alert(ketQua);
+    </script>
+  </body>
+</html>

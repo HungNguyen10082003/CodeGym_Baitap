@@ -1,27 +1,57 @@
-\<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Kiểm tra mảng đối xứng</title>
+    <meta charset="UTF-8" />
+    <title>Rút gọn ps</title>
+  </head>
+  <body>
     <script>
-      function check() {
-        let input = prompt("Nhập mảng số, cách nhau bằng dấu phẩy:");
-        let arr = input.split(",").map(Number);
-        let kiemTraDoiXung = true;
-        for (let i = 0; i < arr.length / 2; i++) {
-          if (arr[i] !== arr[arr.length - 1 - i]) {
-            kiemTraDoiXung = false;
-            break;
+      let y = prompt("nhập vào phân số");
+      find(y); // tuSo/mauSo
+      function find(x) {
+        // xử yêu cầu trong
+        let array = x.split("/");
+        if (array.length === 2) {
+          // có thể là phân số
+          if (!isNaN(array[0]) && !isNaN(array[1]) && array[1] != 0) {
+            alert("là phân số");
+            // rut gọn
+            let uocChungLonNhat = timUCLN(array[0], array[1]);
+            if (array[0] % array[1] == 0) {
+              alert("kết quả rut gọn là một số: " + array[0] / array[1]);
+            } else {
+              alert(
+                "phân số tối giản :" +
+                  array[0] / uocChungLonNhat +
+                  "/" +
+                  array[1] / uocChungLonNhat
+              );
+            }
+          } else {
+            alert("không phải là phân số");
+          }
+        } else {
+          alert("không phải là phân số");
+        }
+      }
+
+      function timUCLN(a, b) {
+        let uocChung = 1;
+        if (a < b) {
+          for (let i = 0; i <= a; i++) {
+            if (a % i === 0 && b % i === 0) {
+              uocChung = i;
+            }
+          }
+        } else {
+          for (let i = 0; i <= b; i++) {
+            if (a % i === 0 && b % i === 0) {
+              uocChung = i;
+            }
           }
         }
-        alert(
-          "Mảng vừa nhập: [" +
-            arr.join(", ") +
-            "]\nKết quả: " +
-            (kiemTraDoiXung ? "OK" : "NO")
-        );
+        return uocChung;
       }
-      window.onload = check;
     </script>
-  </head>
-  <body></body>
+  </body>
 </html>

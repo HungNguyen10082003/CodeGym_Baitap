@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kiểm tra nguyên âm</title>
+  </head>
+  <body>
+    <script>
+      function kiemTraNguyenAm(str) {
+        const nguyenAm = ["a", "e", "i", "o", "u"];
+        let array = [];
+
+        str = str.toLowerCase();
+
+        for (let i = 0; i < str.length; i++) {
+          let kyTu = str[i];
+          if (nguyenAm.includes(kyTu) && !array.includes(kyTu)) {
+            array.push(kyTu);
+          }
+        }
+
+        return array;
+      }
+      let n = prompt("Nhập vào chuỗi kí tự:");
+      let arrayNguyenAm = kiemTraNguyenAm(n);
+      alert("Các nguyên âm có trong chuỗi là: " + arrayNguyenAm.join(", "));
+    </script>
+  </body>
+</html>

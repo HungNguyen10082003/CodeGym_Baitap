@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quản lý học viên</title>
+  </head>
+  <body>
+    <h2>Quản lý học viên</h2>
+
+    <!-- Ô nhập liệu -->
+    <div>
+      <input id="maHocVien" placeholder="Nhập mã học viên" />
+      <input id="tenHocVien" placeholder="Nhập tên học viên" />
+      <input id="lop" placeholder="Nhập lớp" />
+      <input id="email" placeholder="Nhập email" />
+      <input id="ngaySinh" placeholder="Nhập ngày sinh (dd/mm/yyyy)" />
+      <button onclick="themHocVien()">Thêm học viên</button>
+    </div>
+
+    <p id="soLuong" style="font-weight: bold"></p>
+    <div id="hienThi"></div>
+
+    <script>
+      // Lớp Học viên
+      class HocVien {
+        constructor(ma, ten, lop, email, ngaySinh) {
+          this.ma = ma;
+          this.ten = ten;
+          this.lop = lop;
+          this.email = email;
+          this.ngaySinh = ngaySinh;
+        }
+      }
+
+      // Danh sách học viên ban đầu
+      let danhSachHocVien = [
+        new HocVien(
+          "HV-0001",
+          "Nguyễn Hữu Hưng",
+          "C0525l1",
+          "huuhung2511@gmail.com",
+          "10/08/2003"
+        ),
+        new HocVien(
+          "HV-0002",
+          "Nguyễn Văn B",
+          "c0525l1",
+          "nguyenvanb@gmail.com",
+          "02/02/2004"
+        ),
+        new HocVien(
+          "HV-0003",
+          "Nguyễn Thị C",
+          "c0525l1",
+          "nguyenthic@gmail.com",
+          "03/03/2004"
+        ),
+      ];
+
+      hienThiDanhSach(danhSachHocVien);
+
+      // Thêm học viên mới
+      function themHocVien() {
+        let ma = document.getElementById("maHocVien").value.trim();
+        let ten = document.getElementById("tenHocVien").value.trim();
+        let lop = document.getElementById("lop").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let ngaySinh = document.getElementById("ngaySinh").value.trim();
+
+        if (!ma || !ten || !lop || !email || !ngaySinh) {
+          alert("Vui lòng nhập đầy đủ thông tin!");
+          return;
+        }
+
+        danhSachHocVien.push(new HocVien(ma, ten, lop, email, ngaySinh));
+        xoaInput();
+        hienThiDanhSach(danhSachHocVien);
+      }
+
+      // Xóa học viên theo chỉ mục
+      function xoaHocVien(viTri) {
+        let xacNhan = confirm(
+          "Bạn có chắc muốn xóa học viên: " + danhSachHocVien[viTri].ten + "?"
+        );
+        if (xacNhan) {
+          danhSachHocVien.splice(viTri, 1);
+          hienThiDanhSach(danhSachHocVien);
+        }
+      }
+
+      // Sửa thông tin học viên
+      function suaHocVien(viTri) {
+        let hv = danhSachHocVien[viTri];
+        let tenMoi = prompt("Nhập tên mới:", hv.ten);
+        let lopMoi = prompt("Nhập lớp mới:", hv.lop);
+        let emailMoi = prompt("Nhập email mới:", hv.email);
+        let ngaySinhMoi = prompt("Nhập ngày sinh mới:", hv.ngaySinh);
+
+        if (tenMoi && lopMoi && emailMoi && ngaySinhMoi) {
+          hv.ten = tenMoi;
+          hv.lop = lopMoi;
+          hv.email = emailMoi;
+          hv.ngaySinh = ngaySinhMoi;
+          hienThiDanhSach(danhSachHocVien);
+        } else {
+          alert("Thông tin không hợp lệ!");
+        }
+      }
+
+      function hienThiDanhSach(ds) {
+        let bang = `<table border="1" cellpadding="10" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>STT</th>
+                        <th>Mã học viên</th>
+                        <th>Tên</th>
+                        <th>Lớp</th>
+                        <th>Email</th>
+                        <th>Ngày sinh</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                      </tr>
+                    </thead>
+                    <tbody>`;
+
+        for (let i = 0; i < ds.length; i++) {
+          bang += `<tr>
+                   <td>${i + 1}</td>
+                   <td>${ds[i].ma}</td>
+                   <td>${ds[i].ten}</td>
+                   <td>${ds[i].lop}</td>
+                   <td>${ds[i].email}</td>
+                   <td>${ds[i].ngaySinh}</td>
+                   <td><button onclick="suaHocVien(${i})">Sửa</button></td>
+                   <td><button onclick="xoaHocVien(${i})">Xóa</button></td>
+                 </tr>`;
+        }
+
+        bang += `</tbody></table>`;
+
+        document.getElementById("hienThi").innerHTML = bang;
+        document.getElementById("soLuong").innerText =
+          "Tổng số học viên: " + ds.length;
+      }
+
+      // Xóa nội dung trong các ô input
+      function xoaInput() {
+        document.getElementById("maHocVien").value = "";
+        document.getElementById("tenHocVien").value = "";
+        document.getElementById("lop").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("ngaySinh").value = "";
+      }
+    </script>
+  </body>
+</html>

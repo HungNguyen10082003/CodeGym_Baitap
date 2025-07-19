@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Nhập 1 mảng từ bàn phím với độ dài n, n chẵn,hiển thị mảng sau khi thêm
+      mới các pt, kiểm tra mảng vừa nhập, 1,2,3,4,5,6 thì hợp lệ, 1 phần tử sau
+      phải lớn hơn phần từ trước
+    </title>
+  </head>
+  <body>
+    <script>
+      let n = +prompt("Nhập số phần tử:");
+
+      if (n % 2 !== 0) {
+        alert("Vui lòng nhập số chẵn.");
+      } else {
+        let arr = new Array(n);
+        for (let i = 0; i < arr.length; i++) {
+          arr[i] = +prompt(`nhập phần tử thứ ${i}:`);
+        }
+
+        alert("Mảng đã nhập: " + arr.join(", "));
+
+        let check = true;
+        for (let i = 0; i < n; i += 2) {
+          if (arr[i] >= arr[i + 1]) {
+            check = false;
+            break;
+          }
+        }
+
+        if (check) {
+          alert("check");
+        } else {
+          alert("NO");
+        }
+      }
+    </script>
+  </body>
+</html>
