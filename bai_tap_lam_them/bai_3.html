@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tìm cặp có tổng bằng phần tử kế</title>
+  </head>
+  <body>
+    <script>
+      // Hàm nhập mảng từ người dùng
+      let n = +prompt("Nhập số lượng phần tử mảng:");
+      let arr = [];
+
+      for (let i = 0; i < n; i++) {
+        let so = +prompt("Nhập phần tử thứ " + i + ":");
+        arr.push(so);
+      }
+
+      // Tìm các cặp [a, b] sao cho a + b == phần tử tiếp theo
+      let ketQua = [];
+
+      for (let i = 0; i < arr.length - 2; i++) {
+        let a = arr[i];
+        let b = arr[i + 1];
+        let tong = a + b;
+        if (tong === arr[i + 2]) {
+          // Thêm cặp [a, b] vào kết quả
+          let cap = [a, b];
+          ketQua.push(cap);
+        }
+      }
+
+      // Sắp xếp mảng 2 chiều theo tổng của từng cặp
+      for (let i = 0; i < ketQua.length - 1; i++) {
+        for (let j = i + 1; j < ketQua.length; j++) {
+          let tongI = ketQua[i][0] + ketQua[i][1];
+          let tongJ = ketQua[j][0] + ketQua[j][1];
+          if (tongI > tongJ) {
+            let tam = ketQua[i];
+            ketQua[i] = ketQua[j];
+            ketQua[j] = tam;
+          }
+        }
+      }
+
+      // Hiển thị kết quả
+      let chuoi = "Các cặp thỏa mãn (đã sắp xếp):\n";
+      for (let i = 0; i < ketQua.length; i++) {
+        chuoi += "[" + ketQua[i][0] + "," + ketQua[i][1] + "]\n";
+      }
+      alert(chuoi);
+    </script>
+  </body>
+</html>

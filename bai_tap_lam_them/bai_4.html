@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quản lý danh bạ</title>
+  </head>
+  <body>
+    <h2>Quản lý danh bạ điện thoại</h2>
+
+    <div>
+      <input id="soDienThoai" placeholder="Nhập số điện thoại" />
+      <input id="tenChu" placeholder="Nhập tên chủ danh bạ" />
+      <input id="diaChi" placeholder="Nhập địa chỉ" />
+      <button onclick="themDanhBa()">Thêm</button>
+    </div>
+
+    <p id="soLuong"></p>
+    <div id="hienThi"></div>
+
+    <script>
+      class DanhBa {
+        constructor(soDienThoai, tenChu, diaChi) {
+          this.soDienThoai = soDienThoai;
+          this.tenChu = tenChu;
+          this.diaChi = diaChi;
+        }
+      }
+
+      let danhSachDanhBa = [
+        new DanhBa("0912345678", "Nguyễn Văn A", "Hà Nội"),
+        new DanhBa("0987654321", "Trần Thị B", "Đà Nẵng"),
+        new DanhBa("0901122334", "Lê Văn C", "TP.HCM"),
+      ];
+
+      hienThiDanhBa(danhSachDanhBa);
+
+      function themDanhBa() {
+        let so = document.getElementById("soDienThoai").value.trim();
+        let ten = document.getElementById("tenChu").value.trim();
+        let diaChi = document.getElementById("diaChi").value.trim();
+
+        if (!so || !ten || !diaChi) {
+          alert("Vui lòng nhập đầy đủ thông tin!");
+          return;
+        }
+
+        danhSachDanhBa.push(new DanhBa(so, ten, diaChi));
+        xoaInput();
+        hienThiDanhBa(danhSachDanhBa);
+      }
+
+      function xoaDanhBa(viTri) {
+        let xacNhan = confirm(
+          "Bạn có chắc muốn xoá danh bạ của: " +
+            danhSachDanhBa[viTri].tenChu +
+            "?"
+        );
+        if (xacNhan) {
+          danhSachDanhBa.splice(viTri, 1);
+          hienThiDanhBa(danhSachDanhBa);
+        }
+      }
+
+      function hienThiDanhBa(ds) {
+        let bang = `<table border="1">
+        <tr>
+          <th>STT</th>
+          <th>Số điện thoại</th>
+          <th>Tên chủ</th>
+          <th>Địa chỉ</th>
+          <th>Xoá</th>
+        </tr>`;
+
+        for (let i = 0; i < ds.length; i++) {
+          bang += `<tr>
+          <td>${i + 1}</td>
+          <td>${ds[i].soDienThoai}</td>
+          <td>${ds[i].tenChu}</td>
+          <td>${ds[i].diaChi}</td>
+          <td><button onclick="xoaDanhBa(${i})">Xoá</button></td>
+        </tr>`;
+        }
+
+        bang += `</table>`;
+        document.getElementById("hienThi").innerHTML = bang;
+        document.getElementById("soLuong").innerText =
+          "Tổng số danh bạ: " + ds.length;
+      }
+
+      function xoaInput() {
+        document.getElementById("soDienThoai").value = "";
+        document.getElementById("tenChu").value = "";
+        document.getElementById("diaChi").value = "";
+      }
+    </script>
+  </body>
+</html>

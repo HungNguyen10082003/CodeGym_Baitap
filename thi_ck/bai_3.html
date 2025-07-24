@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tìm số nguyên tố</title>
+  </head>
+  <body>
+    <script>
+      function laSoNguyenTo(n) {
+        if (n < 2) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+          if (n % i === 0) return false;
+        }
+        return true;
+      }
+
+      let n = +prompt("Nhập số phần tử của mảng:");
+      let array = [];
+      for (let i = 0; i < n; i++) {
+        let so = +prompt("Nhập phần tử thứ " + (i + 1) + ":");
+        array.push(so);
+      }
+
+      let soNguyenTo = [];
+      for (let i = 0; i < array.length; i++) {
+        if (laSoNguyenTo(array[i])) {
+          soNguyenTo.push(array[i]);
+        }
+      }
+
+      for (let i = 0; i < soNguyenTo.length - 1; i++) {
+        for (let j = i + 1; j < soNguyenTo.length; j++) {
+          if (soNguyenTo[i] > soNguyenTo[j]) {
+            let temp = soNguyenTo[i];
+            soNguyenTo[i] = soNguyenTo[j];
+            soNguyenTo[j] = temp;
+          }
+        }
+      }
+
+      alert("Các số nguyên tố sắp xếp tăng dần: " + JSON.stringify(soNguyenTo));
+    </script>
+  </body>
+</html>

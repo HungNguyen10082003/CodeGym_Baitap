@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tổng chẵn lẻ</title>
+  </head>
+  <body>
+    <script>
+      let n;
+      do {
+        n = +prompt("Nhập số lượng phần tử :");
+      } while (n <= 0 || n <= 0 || n > 20);
+
+      let array = [];
+      for (let i = 0; i < n; i++) {
+        let x = +prompt("Nhập phần tử thứ " + i + ":");
+        array.push(x);
+      }
+
+      let tongChan = 0;
+      let tongLe = 0;
+      let danhSach = "Danh sách mảng: ";
+
+      for (let i = 0; i < array.length; i++) {
+        let so = array[i];
+        danhSach += so + " ";
+
+        if (so % 2 === 0) {
+          tongChan += so;
+        } else {
+          tongLe += so;
+        }
+      }
+      let hieuSo = tongChan - tongLe;
+      let ketQua =
+        danhSach +
+        "\nTổng các số chẵn = " +
+        tongChan +
+        "\nTổng các số lẻ = " +
+        tongLe +
+        "\n Kết quả sau khi thực hiện là: " +
+        hieuSo;
+      alert(ketQua);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đếm chữ in hoa</title>
+  </head>
+  <body>
+    <script>
+      function demInHoa(chuoi) {
+        let dem = 0;
+        for (let i = 0; i < chuoi.length; i++) {
+          let kyTu = chuoi[i];
+          if (kyTu >= "A" && kyTu <= "Z") {
+            dem++;
+          }
+        }
+
+        if (dem === 0) {
+          return "Chuỗi không có ký tự in hoa";
+        } else {
+          return "Số ký tự in hoa là: " + dem;
+        }
+      }
+
+      let input = prompt("Nhập chuỗi ký tự:");
+      let ketQua = demInHoa(input);
+      alert(ketQua);
+    </script>
+  </body>
+</html>

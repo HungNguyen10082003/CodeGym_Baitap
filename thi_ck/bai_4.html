@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quản lý điện thoại</title>
+  </head>
+  <body>
+    <h2>Quản lý điện thoại</h2>
+    <div>
+      <input id="maDienThoai" placeholder="Mã điện thoại" />
+      <input id="ten" placeholder="Tên điện thoại" />
+      <input id="hang" placeholder="Hãng sản xuất" />
+      <input id="gia" placeholder="Giá (VND)" />
+      <button onclick="themDienThoai()">Thêm điện thoại</button>
+    </div>
+
+    <p id="soLuong" style="font-weight: bold"></p>
+    <div id="hienThi"></div>
+
+    <script>
+      class DienThoai {
+        constructor(ma, ten, hang, gia) {
+          this.ma = ma;
+          this.ten = ten;
+          this.hang = hang;
+          this.gia = gia;
+        }
+
+        toString() {
+          return (
+            this.ma + " - " + this.ten + " - " + this.hang + " - " + this.gia
+          );
+        }
+      }
+
+      let danhSach = [
+        new DienThoai("DT01", "iPhone 16", "Apple", 25000000),
+        new DienThoai("DT02", "Galaxy S24", "Samsung", 22000000),
+        new DienThoai("DT03", "Xiaomi 14", "Xiaomi", 16000000),
+      ];
+
+      hienThiDanhSach();
+
+      function themDienThoai() {
+        let ma = document.getElementById("maDienThoai").value.trim();
+        let ten = document.getElementById("ten").value.trim();
+        let hang = document.getElementById("hang").value.trim();
+        let gia = Number(document.getElementById("gia").value.trim());
+
+        if (!ma || !ten || !hang || isNaN(gia)) {
+          alert("Vui lòng nhập đầy đủ và đúng thông tin!");
+          return;
+        }
+
+        let dtMoi = new DienThoai(ma, ten, hang, gia);
+        danhSach.push(dtMoi);
+        danhSach.sort(function (a, b) {
+          return a.ten.localeCompare(b.ten);
+        });
+
+        xoaInput();
+        hienThiDanhSach();
+      }
+
+      function hienThiDanhSach() {
+        let html = "<table border='1' cellpadding='10' cellspacing='0'>";
+        html +=
+          "<tr><th>STT</th><th>Mã</th><th>Tên</th><th>Hãng</th><th>Giá</th></tr>";
+        for (let i = 0; i < danhSach.length; i++) {
+          html +=
+            "<tr>" +
+            "<td>" +
+            (i + 1) +
+            "</td>" +
+            "<td>" +
+            danhSach[i].ma +
+            "</td>" +
+            "<td>" +
+            danhSach[i].ten +
+            "</td>" +
+            "<td>" +
+            danhSach[i].hang +
+            "</td>" +
+            "<td>" +
+            danhSach[i].gia.toLocaleString() +
+            " td</td>" +
+            "</tr>";
+        }
+        document.getElementById("hienThi").innerHTML = html;
+        document.getElementById("soLuong").innerText =
+          "Tổng số điện thoại: " + danhSach.length;
+      }
+
+      function xoaInput() {
+        document.getElementById("maDienThoai").value = "";
+        document.getElementById("ten").value = "";
+        document.getElementById("hang").value = "";
+        document.getElementById("gia").value = "";
+      }
+    </script>
+  </body>
+</html>

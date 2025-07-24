@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Nhập từ bàn phím một mảng số nguyên gồm n phần tử (yêu cầu n phải là bội
+      của 3 và n<=15)
+    </title>
+  </head>
+  <body>
+    <script>
+      let n;
+      do {
+        n = +prompt("nhập đồ dài của mảng");
+      } while (n <= 0 || n >= 15 || n % 3 !== 0);
+      let array = [];
+      for (let i = 0; i < n; i++) {
+        array.push(+prompt("nhập phần tử thứ : " + i));
+      }
+      alert(array);
+
+      function laTamGiacVuong(a, b, c) {
+        let canh = [a, b, c];
+        canh.sort(function (x, y) {
+          return x - y;
+        });
+        return canh[0] * canh[0] + canh[1] * canh[1] === canh[2] * canh[2];
+      }
+      let hopLe = true;
+      for (let i = 0; i < n; i += 3) {
+        let a = array[i];
+        let b = array[i + 1];
+        let c = array[i + 2];
+
+        if (!laTamGiacVuong(a, b, c)) {
+          hopLe = false;
+          break;
+        }
+      }
+
+      if (hopLe) {
+        alert("OK");
+      } else {
+        alert("NO");
+      }
+    </script>
+  </body>
+</html>

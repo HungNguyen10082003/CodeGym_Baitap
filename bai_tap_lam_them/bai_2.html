@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Viết tắt chuỗi</title>
+  </head>
+  <body>
+    <script>
+      function vietTatChuoi(chuoi) {
+        let tu = chuoi.trim().split(/\s+/);
+
+        if (tu.length < 2) {
+          return "Chuỗi chỉ có 1 từ nên không cần viết tắt";
+        }
+
+        let ketQua = "";
+        for (let i = 0; i < tu.length; i++) {
+          ketQua += tu[i][0].toUpperCase();
+        }
+
+        return ketQua;
+      }
+
+      let nhap = prompt("Nhập chuỗi cần viết tắt:");
+      let ketQua = vietTatChuoi(nhap);
+      alert("Kết quả: " + ketQua);
+    </script>
+  </body>
+</html>
